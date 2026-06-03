@@ -1,0 +1,32 @@
+//rc522.dts
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2712"; // 라즈베리파이 5 칩셋
+
+    fragment@0 {
+        target = <&spi0>;
+        __overlay__ {
+            status = "okay";
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            rc522@0 {
+                compatible = "nxp,rc522"; // 이걸 보고 드라이버 목록을 뒤짐. 위 코드에서 이걸 찾으면 드라이버와 장치 연결
+                reg = <0>; // CE0 (SPI 0.0)
+                spi-max-frequency = <5000000>;
+                status = "okay";
+            };
+        };
+    };
+
+    /* 기존 spidev0.0 비활성화 */
+    fragment@1 {
+        target = <&spidev0>;
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+};
