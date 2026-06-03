@@ -79,6 +79,5 @@ sudo chmod 666 /dev/rc522_rfid
 ### 3. 유저 테스트 어플리케이션 실행
 ```bash
 gcc TEST_rc522_driver.c -o rfid_test
-```
 ./rfid_test
 ```
