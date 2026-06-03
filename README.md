@@ -64,7 +64,7 @@ sudo cp rc522.dtbo /boot/firmware/overlays/
 
 # /boot/firmware/config.txt 파일 하단에 설정 추가 후 재부팅
 # dtoverlay=rc522
-'''
+```
 
 ### 2. 커널 모듈 빌드 및 적재
 ```bash
@@ -80,4 +80,4 @@ sudo chmod 666 /dev/rc522_rfid
 '''bash
 gcc TEST_rc522_driver.c -o rfid_test
 ./rfid_test
-'''
+```
